@@ -12,6 +12,15 @@
  * JS Standard: ESlint
  * 
 */
+console.log("JS is working properly");
+for(let i = 0; i<=99999999;i++){
+    for(let i = 0; i<=999;i++){
+        i=i*2/3*4+5;
+    }
+}
+
+console.log(performance.now());
+
 
 /**
  * Define Global Variables
