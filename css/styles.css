@@ -70,21 +70,25 @@ section {
 
 .navbar__menu {
     background-color:rgb(206, 191, 224);
-    height:32px;
+    height:28px;
+    grid-template-columns: auto auto auto;
+    display:grid;
 }
+
+
+
+
 #navbar__list a:hover{
     color: white;
-    background-color: black;
-    text-decoration: none;
-  }
-  #navbar__section__active {
     background-color: aqua;
+    
   }
+  
   #navbar__list a{
     color: black;
-    padding: 10px;
-    margin: 1px;
-    background-color: white;
+    margin:10px;
+    
+    
     text-decoration: none;
   }
   
@@ -251,3 +255,4 @@ section.your-active-class .landing__container::after {
 		           rotate(-360deg);
 	}
 }
+

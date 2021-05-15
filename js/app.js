@@ -36,6 +36,11 @@ function createNavBarSections(){
         let sectionLink = section.getAttribute('id');
         const newSection = document.createElement('li');
         newSection.innerHTML=`<a href='#${sectionLink}'>${sectionName}</a>`;
+        //test: ok, this makes an id for each created section to be used to activate the selected section
+       const tempClassName= "id__of__"+sectionLink;
+        newSection.setAttribute("id",tempClassName);
+        
+        
         navBarMenu.appendChild(newSection);
     }
 }
@@ -57,16 +62,22 @@ function SectionInViewport(sect) {
 function activateCurrentSection (){
     //loops through all the sections in the sectionsList array
     for(section of sectionsList){
+        const sectionId ="#id__of__"+ section.getAttribute('id');
         if(SectionInViewport(section)){
             section.classList.add("your-active-class");
+            
+            
+            document.querySelector(sectionId).style.backgroundColor="aqua";
+            
         }
         else { 
          section.classList.remove("your-active-class");
+         document.querySelector(sectionId).style.backgroundColor="white";
         }
         //for every item in the navbarmenu : check if it's related to the item in the view port and if it's , make a heighlight
         navBarList = document.querySelectorAll('#navbar__list li')
         for(navBarItem of navBarList){
-          //  console.log(navBarItem.innerHTML);
+           // console.log(navBarItem.innerHTML);
           //  if(navBarItem.innerHTML.)
         }
     }
