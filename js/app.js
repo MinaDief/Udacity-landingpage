@@ -43,19 +43,34 @@ function createNavBarSections(){
 // Add class 'active' to section when near top of viewport
 
 function SectionInViewport(sect) {
-    const rect = sect.getBoundingClientRect();
-    return  rect.top >= 0;
+    const boundingClient = sect.getBoundingClientRect();
+    const sectionStyle = getComputedStyle(sect);  //this puts the css style of the current section into the variable style
+    const sectionHeightString = sectionStyle.height.match(/\d+/g); //this line gets the height of the section in pixels "242px" and converts it into number without px "242"
+    const sectionHeightNumber = parseInt(sectionHeightString, 10);
+
+
+   
+    return  boundingClient.top >= 0 && boundingClient.top <sectionHeightNumber ; // check if the section is in the viewport
 }
 
 
 function activateCurrentSection (){
+    //loops through all the sections in the sectionsList array
     for(section of sectionsList){
-        if(SectionInViewport(section))
-        section.classList.add("your-active-class");
+        if(SectionInViewport(section)){
+            section.classList.add("your-active-class");
+        }
         else { 
          section.classList.remove("your-active-class");
         }
+        //for every item in the navbarmenu : check if it's related to the item in the view port and if it's , make a heighlight
+        navBarList = document.querySelectorAll('#navbar__list li')
+        for(navBarItem of navBarList){
+          //  console.log(navBarItem.innerHTML);
+          //  if(navBarItem.innerHTML.)
+        }
     }
+    
 
 }
 
