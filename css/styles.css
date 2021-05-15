@@ -71,7 +71,6 @@ section {
     padding-left: 0;
     margin: 0;
     text-align: right;
-    
 }
 
 .navbar__menu li {
@@ -130,7 +129,7 @@ section {
 section:nth-of-type(even) .landing__container {
     margin-right: 0;
     margin-left: auto;
-   /* text-align: right; 
+    text-align: right; 
 }
 
 /* Background Circles */
