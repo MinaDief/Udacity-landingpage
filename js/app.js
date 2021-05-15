@@ -12,14 +12,7 @@
  * JS Standard: ESlint
  * 
 */
-console.log("JS is working properly");
-for(let i = 0; i<=99999999;i++){
-    for(let i = 0; i<=999;i++){
-        i=i*2/3*4+5;
-    }
-}
-
-console.log(performance.now());
+console.log("JS is working properly-ID 0001");
 
 
 /**
@@ -27,25 +20,54 @@ console.log(performance.now());
  * 
 */
 
+const sectionsList = document.querySelectorAll("section");
+const navBarMenu= document.querySelector('#navbar__list');
+
 
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
+function createNavBarSections(){
+    for(section of sectionsList)
+    {
+        let sectionName = section.getAttribute('data-nav');
+        let sectionLink = section.getAttribute('id');
+        const newSection = document.createElement('li');
+        newSection.innerHTML=`<a href='#${sectionLink}'>${sectionName}</a>`;
+        navBarMenu.appendChild(newSection);
+    }
+}
+
+// Add class 'active' to section when near top of viewport
+
+function SectionInViewport(sect) {
+    const rect = sect.getBoundingClientRect();
+    return  rect.top >= 0;
+}
 
 
+function activateCurrentSection (){
+    for(section of sectionsList){
+        if(SectionInViewport(section))
+        section.classList.add("your-active-class");
+        else { 
+         section.classList.remove("your-active-class");
+        }
+    }
+
+}
 
 /**
  * End Helper Functions
  * Begin Main Functions
  * 
 */
+// Build menu 
+createNavBarSections();
 
-// build the nav
 
-
-// Add class 'active' to section when near top of viewport
 
 
 // Scroll to anchor ID using scrollTO event
@@ -57,10 +79,11 @@ console.log(performance.now());
  * 
 */
 
-// Build menu 
+
+
 
 // Scroll to section on link click
 
 // Set sections as active
-
+document.addEventListener('scroll', activateCurrentSection);
 
