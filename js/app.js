@@ -12,6 +12,16 @@
  * JS Standard: ESlint
  * 
 */
+
+/* 
+I attribute some parts of the code syntax to third party websites
+example:
+https://stackoverflow.com/
+https://www.w3schools.com/
+https://developer.mozilla.org/en-US/
+and few more..
+but most of the logic work is mine, and even the imported code has been tested before using it and updated to match my needs
+ */
 console.log("JS is working properly-ID 0001");
 
 
